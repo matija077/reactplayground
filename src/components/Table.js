@@ -19,12 +19,12 @@ function initReducer(init) {
   return {
     ...init,
     counter: 0
-  };
+  };sadas
 }sdsd
 
 const actionMap = {
   refresh: "refresh",
-  deleteSet: "deleteSet",
+  deleteSet: "deleteSet",dsd
   restore: "restore"
 }
 
