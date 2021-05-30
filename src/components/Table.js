@@ -20,7 +20,7 @@ function initReducer(init) {
     ...init,
     counter: 0
   };
-}
+}sdsd
 
 const actionMap = {
   refresh: "refresh",
