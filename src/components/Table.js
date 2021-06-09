@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect, useState, useReducer, useCallback, useMemo } from "react";
+import React, { useEffect, useState, useReducer, useCallback, useMemo, Children } from "react";
 import Table from 'react-bootstrap/Table'
 
 let pointerSet = new Map();
@@ -61,7 +61,7 @@ function createAction(type, payload = undefined, error = undefined) {
   return {
     type,
     payload,
-    error 
+    error
   }
 }
 
@@ -77,8 +77,9 @@ function restore() {
   return createAction(actionMap.restore)
 }
 
-const Tablica = () => {
+const Tablica = (props) => {
 
+  console.log(props)
   const [state, dispatch] = useReducer(reducer, {test: 2}, initReducer)
 
   //const customHook2 = useMemo(useCustomHook, []);
@@ -103,7 +104,8 @@ const Tablica = () => {
 
   console.log(pointerSet)
   return (
-  
+    <>
+
     <Table striped bordered hover variant="dark">
     <thead>
       <tr>
@@ -146,12 +148,14 @@ const Tablica = () => {
         </td>
       </tr>
     </tbody>
+
   </Table>
-   
+  {props.children}
+  </>
+
   )
 }
 
 export default Tablica
 
 
-    
