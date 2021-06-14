@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useEffect, useState, useReducer, useCallback, useMemo } from "react";
+import ReactDOM from 'react-dom';
 import Table from 'react-bootstrap/Table'
 
 let pointerSet = new Map();
@@ -61,7 +62,7 @@ function createAction(type, payload = undefined, error = undefined) {
   return {
     type,
     payload,
-    error 
+    error
   }
 }
 
@@ -103,7 +104,7 @@ const Tablica = () => {
 
   console.log(pointerSet)
   return (
-  
+
     <Table striped bordered hover variant="dark">
     <thead>
       <tr>
@@ -146,12 +147,19 @@ const Tablica = () => {
         </td>
       </tr>
     </tbody>
+    <Portalic />
   </Table>
-   
+
   )
 }
 
 export default Tablica
 
+function Portalic() {
 
-    
+  return ReactDOM.createPortal(
+    <div>Portalic</div>,
+   document.getElementById('portal'));
+}
+
+
